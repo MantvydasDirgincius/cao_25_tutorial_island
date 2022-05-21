@@ -2,7 +2,6 @@ export let errorsArr = [];
 
 export function clearErrorsArr() {
   errorsArr = [];
-  console.log('errorsArr ===', errorsArr);
 }
 
 function addError(message, field) {
