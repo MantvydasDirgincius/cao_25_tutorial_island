@@ -1,0 +1,27 @@
+{
+  "name": "cao_25_tutorial_island",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MantvydasDirgincius/cao_25_tutorial_island.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MantvydasDirgincius/cao_25_tutorial_island/issues"
+  },
+  "homepage": "https://github.com/MantvydasDirgincius/cao_25_tutorial_island#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3"
+  }
+}
