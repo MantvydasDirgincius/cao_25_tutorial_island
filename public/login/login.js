@@ -45,6 +45,7 @@ formEl.addEventListener('submit', async (e) => {
     if (data.success) {
       localStorage.setItem('userToken', data.token);
       localStorage.setItem('userId', data.paylod.userId);
+      window.location.replace('../tutorials/tutorials.html');
     }
   } catch (error) {
     handleError(error.response.data.message);

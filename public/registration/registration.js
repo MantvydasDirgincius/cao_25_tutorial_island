@@ -58,7 +58,10 @@ formEl.addEventListener('submit', async (e) => {
 
   try {
     const { data } = await axios.post(`${BASE_URL}/v1/registration`, logInInfo);
-    console.log(data);
+    if (data.success) {
+      alert(data.message);
+      window.location.replace('../login/login.html');
+    }
   } catch (error) {
     handleError(error.response.data.message.message);
   }
