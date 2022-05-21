@@ -1,6 +1,6 @@
 .login {
   width: 400px;
-  height: 300px;
+  height: 400px;
   border: 1px solid #000;
   border-radius: 5px;
   display: -webkit-box;
@@ -10,7 +10,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   padding: 20px;
   margin: 100px auto;
   -webkit-box-pack: center;
@@ -27,4 +27,9 @@
   border: 1px solid tomato;
   background-color: #ffcfc7;
 }
-/*# sourceMappingURL=login.css.map */
+
+.err {
+  color: tomato;
+  margin-top: 0;
+}
+/*# sourceMappingURL=registration.css.map */

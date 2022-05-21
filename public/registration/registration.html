@@ -12,20 +12,24 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script type="module" src="./login.js" defer></script>
-    <link rel="stylesheet" href="./login.css" />
-    <title>login</title>
+    <script type="module" src="./registration.js" defer></script>
+    <link rel="stylesheet" href="./registration.css" />
+    <title>Registration</title>
   </head>
   <body>
     <form class="login">
+      <h3 class="err"></h3>
       <label for="email">Email</label>
       <input type="text" id="email" name="email" placeholder="Type your email address" />
       <span class="errorSpan"></span>
       <label for="password">Password</label>
       <input type="password" id="password" name="password" placeholder="Type your password" />
       <span class="errorSpan"></span>
+      <label for="password">Repeat password</label>
+      <input type="password" id="repPassword" name="repPassword" placeholder="Repeat your password" />
+      <span class="errorSpan"></span>
       <button type="submit">Log in</button>
-      <p>Don't have an account? <a href="../registration/registration.html">Register</a></p>
+      <p>Already a user? <a href="../login/login.html">Log in!</a></p>
     </form>
   </body>
 </html>

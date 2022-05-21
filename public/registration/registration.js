@@ -4,9 +4,11 @@ const BASE_URL = 'http://localhost:3000';
 const formEl = document.forms[0];
 
 const errSpanEl = document.querySelectorAll('.errorSpan');
+const errh3El = document.querySelector('.err');
 
 const emailInpEL = formEl.elements.email;
 const passwordInpEL = formEl.elements.password;
+const repPasswordInpEl = formEl.elements.repPassword;
 
 emailInpEL.addEventListener('blur', (event) => {
   clearErrors();
@@ -16,6 +18,13 @@ emailInpEL.addEventListener('blur', (event) => {
 });
 
 passwordInpEL.addEventListener('blur', (event) => {
+  clearErrors();
+  const el = event.currentTarget;
+  checkInput(el.value, el.name, ['required', 'minLength-4', 'maxLength-10']);
+  handleError(errorsArr);
+});
+
+repPasswordInpEl.addEventListener('blur', (event) => {
   clearErrors();
   const el = event.currentTarget;
   checkInput(el.value, el.name, ['required', 'minLength-4', 'maxLength-10']);
@@ -32,22 +41,26 @@ formEl.addEventListener('submit', async (e) => {
   clearErrors();
 
   checkInput(logInInfo.email, 'email', ['required', 'minLength-4', 'email']);
-
   checkInput(logInInfo.password, 'password', ['required', 'minLength-4', 'maxLength-10']);
-
+  checkInput(repPasswordInpEl.value, 'repPassword', ['required', 'minLength-4', 'maxLength-10']);
   if (errorsArr.length) {
     handleError(errorsArr);
     return;
   }
 
+  if (logInInfo.password !== repPasswordInpEl.value) {
+    handleError([
+      { message: 'Passwords do not match', field: 'password' },
+      { message: 'Password does not match', field: 'repPassword' },
+    ]);
+    return;
+  }
+
   try {
-    const { data } = await axios.post(`${BASE_URL}/v1/login`, logInInfo);
-    if (data.success) {
-      localStorage.setItem('userToken', data.token);
-      localStorage.setItem('userId', data.paylod.userId);
-    }
+    const { data } = await axios.post(`${BASE_URL}/v1/registration`, logInInfo);
+    console.log(data);
   } catch (error) {
-    handleError(error.response.data.message);
+    handleError(error.response.data.message.message);
   }
 });
 
@@ -61,9 +74,15 @@ function clearErrors() {
 }
 function handleError(msg) {
   errSpanEl.textContent = '';
+  if (msg === "Duplicate entry 'test@test.com' for key 'users.email'") {
+    msg = 'This email is already in use by another user';
+    errh3El.textContent = msg;
+    return;
+  }
   if (typeof msg === 'string') {
     errSpanEl.forEach((elements) => {
       elements.textContent = msg;
+      elements.previousElementSibling.classList.add('invalid-input');
     });
   }
   if (Array.isArray(msg)) {
