@@ -16,4 +16,20 @@ Content-Type: application/json
     "password": "test1"
 }
 ###
+POST http://localhost:3000/v1/create-tutorial
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1MzE0OTMxNywiZXhwIjoxNjUzMTUyOTE3fQ.B_xbLsc62-b-Vij0Degd4PqN64kJRvb-vu13q8cvzcg
+
+{
+    "user_id": 1,
+    "title": "tesssssst221",
+    "content": "test1",
+    "private": 1
+}
+###
+GET http://localhost:3000/v1/public-tutorial HTTP/1.1
+###
+GET http://localhost:3000/v1/all-tutorial HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1MzE0OTMxNywiZXhwIjoxNjUzMTUyOTE3fQ.B_xbLsc62-b-Vij0Degd4PqN64kJRvb-vu13q8cvzcg
+###
 
