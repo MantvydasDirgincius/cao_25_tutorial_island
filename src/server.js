@@ -16,4 +16,8 @@ app.get('/', function (req, res) {
 
 app.use('/v1', userRoutes);
 
+app.all('*', (req, res) => {
+  res.status(404).json({ error: 'Page not found' });
+});
+
 app.listen(PORT, () => console.log(`pakurta ant ${PORT}`));
