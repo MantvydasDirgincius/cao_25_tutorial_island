@@ -1,0 +1,15 @@
+body {
+  min-height: 100vh;
+
+  .login {
+    width: 400px;
+    height: 300px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    margin: 100px auto;
+  }
+}
