@@ -1,7 +1,7 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const { registerUser, loginUser } = require('../model/userModel');
+const { registerUser, loginUser, userCount } = require('../model/userModel');
 const { validateUser } = require('../middleware');
 const { jwtSecret } = require('../config');
 const userRoutes = express.Router();
@@ -36,6 +36,15 @@ userRoutes.post('/login', validateUser, async (req, res) => {
     const token = jwt.sign(paylod, jwtSecret, { expiresIn: '1h' });
 
     res.json({ success: true, msg: 'login success', paylod, token });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'something went wrong' });
+  }
+});
+
+userRoutes.get('/users', async (req, res) => {
+  try {
+    const users = await userCount();
+    res.status(200).json(users);
   } catch (error) {
     res.status(500).json({ success: false, message: 'something went wrong' });
   }
