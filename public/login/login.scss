@@ -1,0 +1,20 @@
+.login {
+  width: 400px;
+  height: 300px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  margin: 100px auto;
+  justify-content: center;
+}
+.errorSpan {
+  color: tomato;
+  margin-top: 0;
+}
+.invalid-input {
+  border: 1px solid tomato;
+  background-color: rgb(255, 207, 199);
+}

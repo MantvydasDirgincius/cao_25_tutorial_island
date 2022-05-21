@@ -25,11 +25,11 @@ userRoutes.post('/login', validateUser, async (req, res) => {
     const { email, password } = req.body;
     const [loginResult] = await loginUser(email);
     if (!loginResult) {
-      res.status(500).json({ success: false, message: 'email or password incorrect(email)' });
+      res.status(500).json({ success: false, message: 'email or password incorrect' });
       return;
     }
     if (!bcrypt.compareSync(password, loginResult.password)) {
-      res.status(500).json({ success: false, message: 'email or password incorrect(pass)' });
+      res.status(500).json({ success: false, message: 'email or password incorrect' });
       return;
     }
     const paylod = { userId: loginResult.id };
