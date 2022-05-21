@@ -1,1 +1,22 @@
-/* No CSS *//*# sourceMappingURL=tutorials.css.map */
+body {
+  text-align: center;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.container .grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.container .grid .card {
+  border: 1px solid #000;
+  border-radius: 12px;
+}
+/*# sourceMappingURL=tutorials.css.map */
