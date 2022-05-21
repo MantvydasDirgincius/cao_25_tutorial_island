@@ -3,6 +3,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const { PORT } = require('./config');
 const userRoutes = require('./userRoutes/userRoutes');
+const tutorialRoutes = require('./tutorialRoutes/tutorialRoutes');
 const app = express();
 
 // middleware
@@ -15,6 +16,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/v1', userRoutes);
+app.use('/v1', tutorialRoutes);
 
 app.all('*', (req, res) => {
   res.status(404).json({ error: 'Page not found' });
