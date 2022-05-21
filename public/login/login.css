@@ -18,4 +18,14 @@ body .login {
   padding: 20px;
   margin: 100px auto;
 }
+
+body .errorSpan {
+  color: tomato;
+  margin-top: 0;
+}
+
+body .invalid-input {
+  border: 1px solid tomato;
+  background-color: #ffcfc7;
+}
 /*# sourceMappingURL=login.css.map */
