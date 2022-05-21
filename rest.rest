@@ -4,8 +4,8 @@ POST http://localhost:3000/v1/registration
 Content-Type: application/json
 
 {
-    "email": "test2@test.com",
-    "password": "test1"
+    "email": "test4@test.com",
+    "password": "test5"
 }
 ###
 POST http://localhost:3000/v1/login
