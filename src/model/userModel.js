@@ -11,10 +11,25 @@ async function registerUser(email, password) {
   } catch (error) {
     throw error;
   } finally {
-    conn?.end();
+    await conn?.end();
+  }
+}
+async function loginUser(email) {
+  let conn;
+  try {
+    conn = await mysql.createConnection(dbConfig);
+    const sql = 'SELECT * FROM users WHERE email=?';
+    const [result] = await conn.execute(sql, [email]);
+    console.log('result ===', result);
+    return result;
+  } catch (error) {
+    throw error;
+  } finally {
+    await conn?.end();
   }
 }
 
 module.exports = {
   registerUser,
+  loginUser,
 };
