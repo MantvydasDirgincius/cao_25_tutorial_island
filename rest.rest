@@ -1,2 +1,19 @@
-GET http://localhost:3000/ HTTP/1.1
+GET http://localhost:3000/v1/users HTTP/1.1
 ###
+POST http://localhost:3000/v1/registration
+Content-Type: application/json
+
+{
+    "email": "test4@test.com",
+    "password": "test5"
+}
+###
+POST http://localhost:3000/v1/login
+Content-Type: application/json
+
+{
+    "email": "test1@test.com",
+    "password": "test1"
+}
+###
+
